@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Trenton W. Ford | William & Mary</title>
+    <style>
+        :root {
+            --wm-gold: #b2945e;
+            --wm-green: #115740;
+            --bg: #fdfdfd;
+            --text: #1a1a1a;
+            --sidebar-bg: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            padding: 40px 30px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .profile-img-placeholder {
+            width: 180px;
+            height: 180px;
+            background: var(--wm-green);
+            color: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            border-bottom: 5px solid var(--wm-gold);
+        }
+
+        h1 { font-size: 1.6rem; margin: 10px 0 5px; color: var(--wm-green); }
+        .title { font-size: 0.95rem; font-style: italic; color: #555; margin-bottom: 20px; display: block; }
+        
+        .contact-info { font-size: 0.85rem; border-top: 1px solid #ccc; pt: 20px; }
+        .contact-info p { margin: 8px 0; }
+
+        /* Main Content Styling */
+        main { padding: 40px 60px; }
+        
+        section { margin-bottom: 40px; }
+        h2 { 
+            font-family: 'Helvetica Neue', sans-serif;
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: var(--wm-green);
+            border-bottom: 2px solid var(--wm-gold);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .lab-highlight {
+            background: #f0f7f4;
+            padding: 20px;
+            border-left: 4px solid var(--wm-green);
+            margin-bottom: 20px;
+        }
+
+        .pub-item { margin-bottom: 15px; font-size: 0.95rem; }
+        .pub-title { font-weight: bold; color: #333; }
+        .pub-meta { color: #666; font-size: 0.85rem; }
+
+        .tag {
+            display: inline-block;
+            background: var(--wm-green);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 850px) {
+            .container { grid-template-columns: 1fr; }
+            .sidebar { border-right: none; text-align: center; }
+            .profile-img-placeholder { margin: 0 auto 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <aside class="sidebar">
+        <div class="profile-img-placeholder">TF</div>
+        <h1>Trenton W. Ford</h1>
+        <span class="title">Assistant Professor of Data Science<br>William & Mary</span>
+        
+        <div class="contact-info">
+            <p><strong>Lab:</strong> Ford AI and Society (FAIS)</p>
+            <p><strong>Email:</strong> twford@wm.edu</p>
+            <p><strong>Office:</strong> McGlothlin-Street Hall</p>
+        </div>
+    </aside>
+
+    <main>
+        <section>
+            <h2>Research Overview</h2>
+            <p>
+                My research focuses on <strong>computational disinformation</strong>, <strong>network science</strong>, and the <strong>societal impacts of AI</strong>. I am particularly interested in how generative models can be used to understand and simulate human behavior through <strong>Human-Digital Twins (HDTs)</strong>.
+            </p>
+            <div class="lab-highlight">
+                <strong>Current Focus:</strong> Directing two DARPA initiatives on Human-AI Teaming (HAT) and evaluating LLM-driven influence operations.
+            </div>
+        </section>
+
+        <section>
+            <h2>Recent Publications & Papers</h2>
+            <div class="pub-item">
+                <span class="pub-title">"I Contain Multitudes: A Typology of Digital Doppelgängers"</span><br>
+                <span class="pub-meta">American Journal of Bioethics, 2025</span>
+            </div>
+            <div class="pub-item">
+                <span class="pub-title">"Comp-HuSim: Persistent Digital Personality Simulation Platform"</span><br>
+                <span class="pub-meta">Conference Paper, 2024</span>
+            </div>
+            <div class="pub-item">
+                <span class="pub-title">"Competition Dynamics in the Meme Ecosystem"</span><br>
+                <span class="pub-meta">ACM Transactions on Social Computing, 2023</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Initiatives</h2>
+            <p><span class="tag">NATO</span> Featured expert at the NATO Conference on Digital Resilience, London 2026.</p>
+            <p><span class="tag">DARPA</span> Investigating Human-AI Teaming and large-scale team simulations.</p>
+            <p><span class="tag">FAIS Lab</span> Leading interdisciplinary research into social media manipulation and AI ethics.</p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <p><strong>Ph.D. in Computer Science</strong>, University of Notre Dame</p>
+            <p><strong>B.S. in Computer Science</strong>, Louisiana State University</p>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
