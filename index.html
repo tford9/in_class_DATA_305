@@ -3,10 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Webpage</title>
+    <title>AI Power Consumption Visualizer (2026)</title>
+    <style>
+        :root {
+            --primary: #00f2ff;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--primary); }
+        p.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 2rem; }
+
+        .data-display {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--primary);
+        }
+
+        .unit { font-size: 1rem; color: #94a3b8; margin-left: 5px; }
+
+        input[type=range] {
+            width: 100%;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+
+        .comparison-box {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #comparison-text { font-size: 1.1rem; line-height: 1.5; }
+        .highlight { color: var(--primary); font-weight: bold; }
+        
+        .source { margin-top: 2rem; font-size: 0.7rem; color: #64748b; }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my first simple index.html page.</p>
+
+<div class="container">
+    <h1>AI Energy Pulse 2026</h1>
+    <p class="subtitle">Drag the slider to see how AI's projected annual energy demand (TWh) compares to whole nations.</p>
+
+    <div class="data-display">
+        <span id="twh-value">460</span><span class="unit">TWh</span>
+    </div>
+
+    <input type="range" id="energy-slider" min="460" max="1100" value="460" step="10">
+
+    <div class="comparison-box">
+        <p id="comparison-text">At this level, AI uses more energy than <span class="highlight">Germany</span>.</p>
+    </div>
+
+    <div class="source">
+        Based on IEA 2024-2026 Projections & Feb 2026 News Data. 
+        <br>Current 2026 High Estimate: ~1,000 TWh.
+    </div>
+</div>
+
+<script>
+    const slider = document.getElementById('energy-slider');
+    const display = document.getElementById('twh-value');
+    const comparisonText = document.getElementById('comparison-text');
+
+    const nations = [
+        { name: "Germany", twh: 480 },
+        { name: "France", twh: 450 },
+        { name: "South Korea", twh: 550 },
+        { name: "Canada", twh: 530 },
+        { name: "Brazil", twh: 600 },
+        { name: "Japan", twh: 900 },
+        { name: "India", twh: 1300 },
+    ];
+
+    slider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        display.textContent = val;
+
+        let match = nations.filter(n => n.twh <= val).sort((a,b) => b.twh - a.twh)[0];
+        
+        if (val >= 1000) {
+            comparisonText.innerHTML = `By late 2026, AI demand is nearly <span class="highlight">double</span> the total consumption of Japan.`;
+        } else if (match) {
+            comparisonText.innerHTML = `At this level, AI uses more energy than <span class="highlight">the entire nation of ${match.name}</span> (${match.twh} TWh/yr).`;
+        } else {
+            comparisonText.innerHTML = `AI energy demand is rapidly approaching the level of <span class="highlight">France</span>.`;
+        }
+    });
+</script>
+
 </body>
 </html>
